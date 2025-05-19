@@ -57,7 +57,7 @@ def aes_num_encrypt_decrypt(aes_key,data,numberOfTimes):
      deresults.append(aes_decrypt_time)
      cnt -= 1 
      correct = correct and (aes_decrypted == data)
-    return [sum(enresults), sum(enresults), correct]
+    return [sum(enresults), sum(deresults), correct]
 
 def rsa_num_encrypt_decrypt(rsa_public_key,rsa_private_key, data,numberOfTimes):
     enresults = []
@@ -78,7 +78,7 @@ def rsa_num_encrypt_decrypt(rsa_public_key,rsa_private_key, data,numberOfTimes):
      cnt -= 1 
      correct = correct and (rsa_decryped1 == data)
 
-    return [sum(enresults), sum(enresults), correct]
+    return [sum(enresults), sum(deresults), correct]
 
 # CSV file setup
 csv_file = "results.csv"
