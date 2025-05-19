@@ -103,8 +103,8 @@ for i in range(1,10):
     rsa_encrypt_time, rsa_decrypt_time, rsa_correct = rsa_num_encrypt_decrypt(public_key,private_key,byte_data,i)
   
 
-    results.append(["RSA", i, f"{rsa_encrypt_time:.6f}", f"{rsa_decrypt_time:.6f}", rsa_correct])
-    results.append(["AES", i, f"{aes_encrypt_time:.6f}", f"{aes_decrypt_time:.6f}", aes_correct])
+    results.append(["RSA", i, (i * 128)/1000, f"{rsa_encrypt_time:.6f}", f"{rsa_decrypt_time:.6f}", rsa_correct])
+    results.append(["AES", i, (i * 128)/1000, f"{aes_encrypt_time:.6f}", f"{aes_decrypt_time:.6f}", aes_correct])
 
     #print(results.pop())
     # print(results.pop())
@@ -114,6 +114,6 @@ with open(csv_file, mode="a", newline="") as f:
     writer = csv.writer(f)
     # Write header if file is new
     if write_header:
-        writer.writerow(["Algorithm", "Iteration", "Encryption Time (s)", "Decryption Time (s)", "Decryption Correct"])
+        writer.writerow(["Algorithm", "Iteration", "fileSize (kBytes)", "Encryption Time (s)", "Decryption Time (s)", "Decryption Correct"])
     # Write all results
     writer.writerows(results)
