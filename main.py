@@ -14,8 +14,6 @@ class AESvsRSAFrameBenchmark:
       self.private_key = self.key
       self.public_key = self.key.publickey() 
    
-
-     
     
 # RSA encryption function
 def rsa_encrypt(data, public_key):
