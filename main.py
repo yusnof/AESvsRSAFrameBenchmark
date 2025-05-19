@@ -88,7 +88,7 @@ write_header = not os.path.exists(csv_file)  # Write header only if file doesn't
 results = []
 
 # Run 10 iterations
-for i in range(1,10):
+for i in range(1,10000,1000):
     # Generate 128 bytes of random data
     byte_data = get_random_bytes(128)  # Keep as bytes, do NOT decode
     
