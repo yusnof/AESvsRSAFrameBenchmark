@@ -51,7 +51,7 @@ def aes_num_encrypt_decrypt(aes_key,data,numberOfTimes):
      aes_encrypt_time = dt.perf_counter() - start_time
      
      aes_decrypted = aes_decrypt(nonce, aes_ciphertext, tag, aes_key)
-     aes_decrypt_time = dt.perf_counter() - start_time - aes_encrypt_time
+     aes_decrypt_time = dt.perf_counter() - aes_encrypt_time - start_time
     
      enresults.append(aes_encrypt_time)
      deresults.append(aes_decrypt_time)
@@ -71,10 +71,11 @@ def rsa_num_encrypt_decrypt(rsa_public_key,rsa_private_key, data,numberOfTimes):
      rsa_encrypt_time = dt.perf_counter() - start_time
      
      rsa_decryped1 = rsa_decrypt(rsa_encrypt1, rsa_private_key)
-     rsa_encrypt_time = dt.perf_counter() - start_time - rsa_encrypt_time
+     rsa_decrypt_time = dt.perf_counter() - rsa_encrypt_time - start_time
     
      enresults.append(rsa_encrypt_time)
-     deresults.append(rsa_encrypt_time)
+     deresults.append(rsa_decrypt_time)
+     
      cnt -= 1 
      correct = correct and (rsa_decryped1 == data)
 
