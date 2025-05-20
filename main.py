@@ -85,19 +85,17 @@ write_header = not os.path.exists(csv_file)  # Write header only if file doesn't
 
 # List to store results
 results = []
+byte_data = get_random_bytes(128)  # Keep as bytes, do NOT decode
+p1 = AESvsRSAFrameBenchmark()
+
+aes_key = p1.aes_key
+private_key = p1.private_key
+public_key = p1.public_key
 
 # Run 10 iterations
 for i in range(1,10000,1000):
     # Generate 128 bytes of random data
-    byte_data = get_random_bytes(128)  # Keep as bytes, do NOT decode
     
-
-    p1 = AESvsRSAFrameBenchmark()
-
-
-    aes_key = p1.aes_key
-    private_key = p1.private_key
-    public_key = p1.public_key
 
     aes_encrypt_time, aes_decrypt_time, aes_correct = aes_num_encrypt_decrypt(aes_key,byte_data,i)
     rsa_encrypt_time, rsa_decrypt_time, rsa_correct = rsa_num_encrypt_decrypt(public_key,private_key,byte_data,i)
