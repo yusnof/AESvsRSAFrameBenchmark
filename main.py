@@ -94,8 +94,7 @@ public_key = p1.public_key
 
 # Run 10 iterations
 for i in range(1,10000,1000):
-    # Generate 128 bytes of random data
-    
+
 
     aes_encrypt_time, aes_decrypt_time, aes_correct = aes_num_encrypt_decrypt(aes_key,byte_data,i)
     rsa_encrypt_time, rsa_decrypt_time, rsa_correct = rsa_num_encrypt_decrypt(public_key,private_key,byte_data,i)
